@@ -19,4 +19,5 @@ Route::group(['namespace' => '\App\Http\Controllers\Main'], function (){
 });
 
 Auth::routes();
+//
 
