@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\Category\CategoryController;
 use App\Http\Controllers\Admin\Main\AdminController;
 use App\Http\Controllers\Main\IndexController;
 use Illuminate\Support\Facades\Route;
@@ -19,9 +20,31 @@ Route::group(['namespace' => '\App\Http\Controllers\Main'], function (){
     Route::get('/', IndexController::class);
 });
 
+//Route::group(['namespace' => '\App\Http\Controllers\Admin' ] , function (){
+//    Route::group(['namespace' => 'Main', 'prefix' => 'admin'], function (){
+//            Route::get('/', AdminController::class);
+//        Route::group(['namespace' => 'Category' , 'prefix' => 'categories'], function (){
+//            Route::get('/' , CategoryController::class);
+//        });
+//    });
+//
+//});
 
-Route::group(['namespace' => '\App\Http\Controllers\Admin\Main', 'prefix' => 'admin'], function (){
-        Route::get('/', AdminController::class);
+Route::group(['prefix' => 'admin'], function (){
+    Route::get('/', AdminController::class)->name('admin.index');
+    Route::get('/categories' , CategoryController::class)->name('categories.index');
 });
 
+
 Auth::routes();
+
+
+
+
+//Route::group(['namespace' => '\App\Http\Controllers\Admin\Main', 'prefix' => 'admin'], function (){
+//        Route::get('/', AdminController::class);
+//    Route::group(['namespace' => 'App\Http\Controllers\Admin\Category' , 'prefix' => 'categories'], function (){
+//        Route::get('/' , CategoryController::class);
+//    });
+//
+//});
