@@ -8,7 +8,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Категории</h1>
+                    <h1 class="m-0">{{ $category->title }}</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -25,33 +25,21 @@
     <section class="content">
         <div class="container-fluid">
             <!-- Small boxes (Stat box) -->
-            <div class="row">
-                <div class="col-1 mb-3">
-                    <a href="{{ route('admin.categories.create') }}" class="btn btn-block btn-primary">Создать</a>
-                </div>
-
-
-            </div>
                 <div class="row">
                     <div class="col-6">
                         <div class="card">
                             <!-- /.card-header -->
                             <div class="card-body table-responsive p-0">
                                 <table class="table table-hover text-nowrap">
-                                    <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Название</th>
-                                    </tr>
-                                    </thead>
                                     <tbody>
-                                    @foreach($categories as $category)
-                                        <tr>
-                                            <td>{{ $category->id }}</td>
-                                            <td>{{ $category->title }}</td>
-                                            <td><a href="{{ route('admin.categories.show' , $category->id) }}"><i class="far fa-eye"></i></a></td>
-                                        </tr>
-                                    @endforeach
+                                    <tr>
+                                        <td>ID</td>
+                                        <td>{{ $category->title }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Название</td>
+                                        <td>{{ $category->title }}</td>
+                                    </tr>
                                     </tbody>
                                 </table>
                             </div>
