@@ -2,8 +2,11 @@
 
 use App\Http\Controllers\Admin\Category\CategoryController;
 use App\Http\Controllers\Admin\Category\CreateController;
+use App\Http\Controllers\Admin\Category\EditController;
 use App\Http\Controllers\Admin\Category\ShowController;
 use App\Http\Controllers\Admin\Category\StoreController;
+use App\Http\Controllers\Admin\Category\UpdateController;
+use App\Http\Controllers\Admin\Category\DeleteController;
 use App\Http\Controllers\Admin\Main\AdminController;
 use App\Http\Controllers\Main\IndexController;
 use Illuminate\Support\Facades\Route;
@@ -39,6 +42,9 @@ Route::group(['prefix' => 'admin'], function (){
     Route::get('/create' , CreateController::class)->name('admin.categories.create');
     Route::post('/' , StoreController::class)->name('admin.categories.store');
     Route::get('/{category}' , ShowController::class)->name('admin.categories.show');
+    Route::get('/{category}/edit' , EditController::class)->name('admin.categories.edit');
+    Route::patch('/{category}' , UpdateController::class)->name('admin.categories.update');
+    Route::delete('/{category}' , DeleteController::class)->name('admin.categories.delete');
 });
 
 
